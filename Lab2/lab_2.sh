@@ -10,3 +10,4 @@ cd $path
 sudo mv ./cjdns /opt
 cd /opt/cjdns
 ./cjdroute < cjdroute.conf 
+cd $path
