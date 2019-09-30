@@ -1,13 +1,11 @@
 #!/bin/bash
 
-echo $#
 if [ $# == 0 ];
 then
 	folder_name="./"
 else
 	folder_name=$1
 fi
-echo $folder_name
 
 time_ext=(mp3 mp4 avi m4v mov MPG MPEG)
 dlm=','
