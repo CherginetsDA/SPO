@@ -15,7 +15,6 @@
 > direcory - папка которую необходимо проверить
 
 > При отсутствии libreoffice необходимо установить утилиту ssconvert. Это можно сделать следующим образом:
----
 
 ##### Ubuntu
 <sudo apt-get install gnumeric>
