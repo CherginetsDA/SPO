@@ -11,16 +11,19 @@
 
 ### Запуск
 Для запуска введите
-<./lab_1.sh directory>
+
+    ./lab_1.sh directory
 > direcory - папка которую необходимо проверить
 
 > При отсутствии libreoffice необходимо установить утилиту ssconvert. Это можно сделать следующим образом:
 
 ##### Ubuntu
-<sudo apt-get install gnumeric>
+
+    sudo apt-get install gnumeric
   
 ##### Arch linux
-<sudo pacman -S gnumeric>
+
+    sudo pacman -S gnumeric
 
 > Данный скрипт проверялся на Ubuntu 18.04 и Arch linux
 ---
@@ -31,7 +34,8 @@
 
 ### Запуск
 Для запуска введите
-<./lab_2.sh>
+
+    ./lab_2.sh
 
 > По оканчанию исполнения скрипта cjdns будет находиться в системной папке /opt
 
