@@ -121,6 +121,19 @@ def get_area_site(area):
     name = afp.text.replace('Выборы депутатов ','').replace('Муниципального ','').replace('Муниципальный ','').replace('муниципальный ','').replace('муниципального ','').replace('Cовета ', '').replace('cовета ', '').replace('Совета ', '').replace('совета ', '').replace('образования ', '').replace('округа ', 'округ ').replace('Санкт-Петербурга ', '').replace('внутригородского ', '').replace('Внутригородского ', '').replace(' шестого созыва', '').strip()
     area_page = BeautifulSoup(requests.get(afp.get('href',None)).content, "lxml")
     tik_tags = area_page.find_all('option')
-    area_tags = area_page.find_all('a')
-    print(area_page)
-    # TODO: Add get data to table
+    # area_tags = area_page.find_all('a')
+    all_okrug = {}
+    for tik_tag in tik_tags:
+        tik_link = tik_tag.get('value',None)
+        if tik_link is not None:
+            okrug = int(tik_tag.text[:tik_tag.text.find(" ")])
+            tik_page = BeautifulSoup(requests.get(tik_link).content, "lxml")
+            okrug_tags = tik_page.find_all('a')
+            for okrug_tag in okrug_tags:
+                okrug_link = okrug_tag.get('href',None)
+                if 'type=424'in okrug_link:
+
+                    dd = pd.read_html(okrug_link,encoding='cp1251')
+                    okrug_df = pd.concat([dd[6], dd[7]], axis=1)
+                    all_okrug[tik_tag.text[tik_tag.text.find('№')+1:]] = okrug_df.iloc[:,1:]
+    return all_okrug
