@@ -1,0 +1,27 @@
+include "map.inc"
+include "robot.inc"
+
+resolution 0.05
+interval_sim 100
+
+
+window
+(
+  size [1500 700]
+  scale 50
+)
+
+floorplan
+(
+  name "map"
+  bitmap "../map.pgm"
+  size [60.000 40.000 1]
+  #pose [ -29.350 27.000 0.000 90.000 ]
+)
+
+robot
+(
+name "speedy1"
+pose [-15 -5 0 45]
+color "green"
+)
